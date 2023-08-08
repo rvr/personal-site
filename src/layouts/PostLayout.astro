@@ -1,0 +1,15 @@
+---
+import DefaultLayout from './DefaultLayout.astro';
+import PostHeader from '@components/PostHeader.astro';
+const { pageTitle, frontmatter } = Astro.props;
+---
+
+<DefaultLayout pageTitle={frontmatter.title}>
+    
+    <PostHeader title={frontmatter.title} date={frontmatter.pubDate} />
+
+    <slot />
+    
+</DefaultLayout>
+
+

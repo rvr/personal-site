@@ -1,0 +1,51 @@
+--- 
+interface Props {
+	title: string;
+	intro: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/styles/main.css" />
+		<meta name="generator" content={Astro.generator} />
+		<title>River Brandon | {pageTitle}</title>
+	</head>
+	<body>
+		<header role="banner" class="site-header">
+			<site-container class="site-header_grid">
+				<h1 class="site-title">
+					<a href="/" class="home-link">Here to help.</a>
+				</h1>
+				<nav role="navigation" class="site-nav">
+					<ul>
+						<li class="site-nav_tab">
+							<a href="/posts">Posts</a>
+						</li>
+						<li class="site-nav_tab">
+							<a href="/services">Services</a>
+						</li>
+						<li class="site-nav_tab">
+							<a href="/connect">Connect</a>
+						</li>	
+					</ul>
+				</nav>
+			</site-container>
+		</header>
+		<site-container>
+			<main id="main-content">
+
+				<slot />
+
+			</main>
+		</site-container>
+	
+	</body>
+</html>

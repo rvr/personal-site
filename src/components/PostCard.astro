@@ -1,0 +1,22 @@
+---
+import FormattedDate from './FormattedDate.astro';
+interface Props {
+	title: string;
+	date: Date;
+	blurb: string;
+	href: string;
+}
+
+const { title, date, blurb, href } = Astro.props;
+---
+
+<li class="post-card">
+	<h3 class="post-title post-card_title">
+		<a href={href}>{title}</a>
+	</h3>
+	<FormattedDate date={date} />
+	<p class="post-blurb">{blurb}</p>
+</li>
+
+
+

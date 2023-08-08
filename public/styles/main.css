@@ -1,0 +1,323 @@
+@import 'properties.css';
+@import 'reset.css';
+
+@font-face {
+    font-family: "Work Sans";
+    font-weight: 100 900;
+    src: url("../fonts/WorkSans.woff2") format("woff2")
+}
+
+@font-face {
+    font-family: "Work Sans";
+    font-weight: 100 900;
+    font-style: italic;
+    src: url("../fonts/WorkSans-Italic.woff2") format("woff2")
+}
+
+/*
+//// Base styles ////
+*/
+
+body {
+    background-color: var(--base-light);
+    color: var(--base-dark);
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--text-0);
+    line-height: var(--text-2);
+}
+
+a {
+    color: var(--accent-dark);
+}
+
+a:hover {
+    text-decoration: underline solid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+}
+
+@media screen and (max-width: 30em) {
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+    }
+}
+
+h1 {
+    font-size: var(--text-4);
+}
+
+h2 {
+    font-size: var(--text-3);
+}
+
+h3 {
+    font-size: var(--text-2);
+}
+
+h4 {
+    font-size: var(--text-1);
+}
+
+h5 {
+    font-size: var(--text-0);
+}
+
+p {
+    margin-bottom: var(--space-2);
+}
+
+.visually-hidden {
+    display: none;
+}
+
+
+/*
+//// Components ////
+*/
+
+/** Buttons **/
+.button {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding: var(--space--4) var(--space--1);
+    border-radius: var(--space--4);
+    background-color: hsl(var(--accent-dark-hsl) / 0.75);
+    color: var(--base-light--1);
+}
+
+.button:hover {
+    background-color: var(--accent-dark);
+}
+
+.button.-small {
+    padding: 0 var(--space--1);
+    border-radius: var(--space-1);
+    font-size: var(--text--1);
+}
+
+.button.-small.-icon-left {
+    padding-left: var(--space-3);
+}
+
+.button.-secondary {
+    /*border: 1px solid var(--base-light-3);*/
+    background-color: var(--base-light-1);
+    color: var(--accent-dark);
+}
+
+.button.-secondary:hover {
+    background-color: var(--base-light--1);
+}
+
+.-back::before {
+    content: '\21D0';
+    position: absolute;
+    left: var(--space--2);
+}
+
+.continue-link {
+    display: inline-block;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: var(--text--1);
+    font-weight: 600;
+}
+
+/** Titles **/
+.page-title {
+    margin-bottom: var(--space-4);
+}
+
+/*
+//// Site layout ////
+*/
+
+site-container {
+    display: block;
+    max-width: 90vw;
+    margin-inline: auto;
+}
+
+@media screen and (min-width: 48em) {
+    site-container {
+      max-width: 70ch;
+    }
+}
+
+.site-header {
+    background-color: var(--base-light-2);
+    padding: var(--space-4) 0 var(--space-1) 0;
+}
+
+/** Default grid settings for small viewport **/
+.site-header_grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+}
+
+/** Go to columns for larger viewport **/
+@media screen and (min-width: 30em) {
+    .site-header_grid {
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+}
+
+.site-title {
+    font-size: var(--text-2);
+    font-weight: 800;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+}
+
+/** Larger viewport put title on left **/
+@media screen and (min-width: 30em) {
+    .site-title {
+        justify-self: left;
+    }
+}
+
+.home-link {
+    color: var(--base-dark);
+}
+
+/*
+//// Nav styles ////
+*/
+
+.site-nav {
+    align-self: center;
+    justify-self: center;
+    margin-top: var(--space-1);
+}
+
+/** Larger viewport put nav on the right **/
+@media screen and (min-width: 30em) {
+    .site-nav {
+        justify-self: right;
+        margin: 0;
+    }
+}
+
+.site-nav_tab {
+    display: inline-block;
+}
+
+.site-nav_tab a {
+    display: block;
+    padding: var(--space--5) var(--space-1);
+    border-radius: calc(var(--text-4) / 2);
+    line-height: var(--text-0);
+    font-size: var(--text--2);
+    font-weight: 500;
+    background-color: var(--base-light-3);
+}
+
+/** Larger viewport adjust tab size and spacing **/
+@media screen and (min-width: 30em) {
+    .site-nav_tab a {
+        margin-left: var(--space--4);
+    }
+}
+
+.site-nav_tab a:hover {
+    background-color: var(--base-light);
+}
+
+/** This would be better as a dynamic class on the active tab **/
+.posts .site-nav_tab.posts,
+.services .site-nav_tab.services,
+.work .site-nav_tab.work,
+.connect .site-nav_tab.connect {
+    background-color: var(--base-light--1);
+}
+
+#main-content {
+    padding: var(--space-4) 0 var(--space-6);
+}
+
+/*
+//// Site section styles ////
+*/
+
+.page-header {
+
+}
+
+/*
+//// Posts styles ////
+*/
+
+/** Shared styles **/
+.post-title {
+    margin: var(--space-2) 0 0;
+}
+
+.post-date {
+    display: inline-block;
+    font-size: var(--text--1);
+    margin-bottom: var(--space--4);
+}
+
+/** Posts lists **/
+.posts-list li {
+    list-style-type: none;
+}
+
+.posts-list_footer {
+    margin: calc(0vw - var(--space--1)) 0 var(--space-5);
+    text-align: center;
+    position: relative;
+}
+
+.posts-list_footer::before,
+.posts-list_footer::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 42%;
+    height: 1px;
+    top: 50%;
+    background-color: var(--base-light-3);
+}
+
+.posts-list_footer::after {
+    right: 0;
+}
+
+/** Card **/
+.post-card {
+    padding: 0 var(--space--4);
+    margin-bottom: var(--space-1);
+    border-bottom: 1px solid var(--base-light-3);
+}
+
+.post-card:last-child {
+    border: none;
+}
+
+.post-card_title {
+    font-size: var(--text-1);
+    font-weight: 500;
+}
+
+/** Post page **/
+.post-header_title {
+
+}
+
+.post-header_date {
+    display: inline-block;
+    font-size: var(--text--1);
+    margin-bottom: var(--space--4);
+}
+
+.post-body {
+    padding-top: var(--space-1);
+}
