@@ -19,7 +19,7 @@ I should also mention that the [Astro tutorial on creating a blog](https://docs.
 
 Ok, here's the structure:
 
-- The sorting function for posts is in `/src/js/utils.js`:
+**The sorting function for posts is in `/src/js/utils.js`:**
 
 ```js
 export function sortPosts(posts, {
@@ -47,7 +47,7 @@ export function sortPosts(posts, {
 }
 ```
 
-- The posts page (`pages/posts.astro`) imports the function and uses it to sort the posts glob:
+**The posts page (`pages/posts.astro`) imports the function and uses it to sort the posts glob:**
 
 ```html
 ---

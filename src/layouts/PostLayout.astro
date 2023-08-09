@@ -6,9 +6,17 @@ const { pageTitle, frontmatter } = Astro.props;
 
 <DefaultLayout pageTitle={frontmatter.title}>
     
-    <PostHeader title={frontmatter.title} date={frontmatter.pubDate} />
+    <article class="post">
+       
+        <PostHeader title={frontmatter.title} date={frontmatter.pubDate} />
+        
+        <section class="post-body">
 
-    <slot />
+            <slot />
+    
+        </section>
+        
+    </article>
     
 </DefaultLayout>
 

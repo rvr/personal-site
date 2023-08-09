@@ -309,7 +309,7 @@ site-container {
 
 /** Post page **/
 .post-header_title {
-
+    margin: var(--space-2) 0 var(--space--2);
 }
 
 .post-header_date {
@@ -321,3 +321,28 @@ site-container {
 .post-body {
     padding-top: var(--space-1);
 }
+
+.post-body ul {
+    list-style-type: disc;
+    padding-left: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.post-body li {
+    margin-bottom: var(--space--3);
+}
+
+p code,
+li code {
+    display: inline-block;
+    padding: 0 var(--space--3);
+    border-radius: var(--space--6);
+    font-family: monospace;
+    background-color: var(--base-light-2);
+}
+
+pre {
+    margin-bottom: var(--space-3);
+    border-radius: var(--space--6);
+}
+
