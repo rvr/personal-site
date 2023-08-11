@@ -1,12 +1,28 @@
 :root {
     /*** Theme Colors ***/
   
-    --base-light--1: hsl(0 0% 100%);
+    --base-light-h: 40;
+    --base-light-s: 60%;
+    --base-light-l: 96%;
+    --base-light-hs: var(--base-light-h) var(--base-light-s);
+    --base-light-hsl: var(--base-light-h) var(--base-light-s) var(--base-light-l);
 
-    --base-light: hsl(40 60% 96%);
-    --base-light-1: hsl(40 55% 92%);
-    --base-light-2: hsl(40 50% 88%);
-    --base-light-3: hsl(40 45% 84%);
+    --base-light: hsl(var(--base-light-hsl));
+
+    /* Darker */
+    --base-light-1-hsl: var(--base-light-h) calc(var(--base-light-s) - 5%) calc(var(--base-light-l) - 4%);
+    --base-light-1: hsl(var(--base-light-1-hsl));
+    --base-light-2-hsl: var(--base-light-h) calc(var(--base-light-s) - 10%) calc(var(--base-light-l) - 8%);
+    --base-light-2: hsl(var(--base-light-2-hsl));
+    --base-light-3-hsl: var(--base-light-h) calc(var(--base-light-s) - 15%) calc(var(--base-light-l) - 12%);
+    --base-light-3: hsl(var(--base-light-3-hsl));
+    --base-light-4-hsl: var(--base-light-h) calc(var(--base-light-s) - 20%) calc(var(--base-light-l) - 16%);
+    --base-light-4: hsl(var(--base-light-4-hsl));
+
+    /* Lighter */
+    --base-light--1: hsl(var(--base-light-h) var(--base-light-s) 98%);
+    --base-light--2: hsl(var(--base-light-h) var(--base-light-s) 100%);
+
   
     --base-dark-hsl: 236 22% 28%;
     --base-dark: hsl(var(--base-dark-hsl));
@@ -17,7 +33,17 @@
     --accent-dark-hsl: 199 67% 36%;
     --accent-dark: hsl(var(--accent-dark-hsl));
   
-    --accent-bright: hsl(22 99% 60%);
+    /* Bright color */
+    --accent-bright-h: 22;
+    --accent-bright-s: 99%;
+    --accent-bright-l: 60%;
+    --accent-bright-hs: var(--accent-bright-h) var(--accent-bright-s);
+    --accent-bright-hsl: var(--accent-bright-h) var(--accent-bright-s) var(--accent-bright-l);
+
+    --accent-bright: hsl(var(--accent-bright-hsl));
+
+    --accent-bright-1-hsl: var(--accent-bright-h) var(--accent-bright-s) calc(var(--accent-bright-l) - 25%);
+    --accent-bright-1: hsl(var(--accent-bright-1-hsl));
   
     /*** Custom Properties ***/
     --align-heading: start; /* align-heading */

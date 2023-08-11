@@ -5,11 +5,11 @@ interface Props {
 	date: Date;
 }
 
-const { title, date, blurb, href } = Astro.props;
+const { title, date } = Astro.props;
 ---
 
 <header class="post-header">
-	<a href="/posts" class="button -secondary -small -icon-left -back">Back to posts</a>
+	<a href="/posts" class="button -secondary -small -icon-left -back">All posts</a>
     <h2 class="post-header_title">
 		{title}
 	</h2>

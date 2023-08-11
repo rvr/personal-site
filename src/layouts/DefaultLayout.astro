@@ -1,8 +1,6 @@
 --- 
-interface Props {
-	title: string;
-	intro: string;
-}
+import SiteHeader from "@components/SiteHeader.astro";
+import SiteFooter from "@components/SiteFooter.astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -18,34 +16,20 @@ const { pageTitle } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>River Brandon | {pageTitle}</title>
 	</head>
+
 	<body>
-		<header role="banner" class="site-header">
-			<site-container class="site-header_grid">
-				<h1 class="site-title">
-					<a href="/" class="home-link">Here to help.</a>
-				</h1>
-				<nav role="navigation" class="site-nav">
-					<ul>
-						<li class="site-nav_tab">
-							<a href="/posts">Posts</a>
-						</li>
-						<li class="site-nav_tab">
-							<a href="/services">Services</a>
-						</li>
-						<li class="site-nav_tab">
-							<a href="/connect">Connect</a>
-						</li>	
-					</ul>
-				</nav>
-			</site-container>
-		</header>
-		<site-container>
+
+		<SiteHeader />
+
+		<site-container class="site-body">
 			<main id="main-content">
 
 				<slot />
 
 			</main>
 		</site-container>
+
+		<SiteFooter />
 	
 	</body>
 </html>

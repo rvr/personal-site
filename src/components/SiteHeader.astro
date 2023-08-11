@@ -1,0 +1,25 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header role="banner" class="site-header">
+    <site-container class="site-header_inner">
+        <h1 class="site-title">
+            <a href="/" class="home-link">Here to help.</a>
+        </h1>
+        <nav role="navigation" class="site-nav">
+            <ul>
+                <li class:list={["site-nav_tab", currentPath === "posts" ? "-selected" : ""]}>
+                    <a href="/posts">Posts</a>
+                </li>
+                <li class:list={["site-nav_tab", currentPath === "services" ? "-selected" : ""]}>
+                    <a href="/services">Services</a>
+                </li>
+                <li class:list={["site-nav_tab", currentPath === "connect" ? "-selected" : ""]}>
+                    <a href="/connect">Connect</a>
+                </li>	
+            </ul>
+        </nav>
+    </site-container>
+</header>

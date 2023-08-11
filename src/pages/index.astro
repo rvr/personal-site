@@ -4,14 +4,15 @@ import { sortPosts } from "@js/utils";
 import PostCard from '@components/PostCard.astro';
 const allPosts = await Astro.glob('./posts/*.md');
 const sortedPosts = sortPosts(allPosts);
-const pageTitle = "Hi there."
+const pageTitle = "Here to Help.";
+const pageHeading = "Hi there.";
 const intro = "I'm River Brandon. I'm a designer who loves working on complex systems, collaborating with other humans, and making things better in small and large ways. I've designed software, services, teams, systems, and approaches in a variety of environments. If you need help with design challenges, maybe we should talk."
 ---
 
-<IndexLayout title={pageTitle} intro={intro}>
+<IndexLayout pageTitle={pageTitle} pageHeading={pageHeading} intro={intro}>
 
 	<section class="recent-posts">
-		<h3>Recent posts</h3>
+		<h3>Recent posts.</h3>
 		<ul class="posts-list">
 			{
 				sortedPosts.length !== 0 &&
@@ -33,7 +34,7 @@ const intro = "I'm River Brandon. I'm a designer who loves working on complex sy
 	</section>
 
 	<section class="endorsements">
-		<h3>What they say about me</h3>
+		<h3>What people say about me.</h3>
 	</section>
 
 </IndexLayout>

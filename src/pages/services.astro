@@ -1,13 +1,18 @@
 ---
+import PageHeader from '@components/PageHeader.astro';
 import IndexLayout from '../layouts/IndexLayout.astro';
-const pageTitle = "Ways I could help you."
+const pageTitle = "Services";
+const pageHeading = "Maybe you could use some help.";
 ---
 
-<IndexLayout title={pageTitle}>
+<IndexLayout pageTitle={pageTitle} pageHeading={pageHeading}>
 
-    <section>
+    <section class="body-content">
 
-        <p>"No one knows everything. User behaviors are evolving faster than companies can evolve. Curiosity and vulnerability is the only way to get even close to catching up, let alone getting ahead of it"</p>
+        <blockquote class="quote">
+            <p class="quote-content">No one knows everything. User behaviors are evolving faster than companies can evolve. Curiosity and vulnerability is the only way to get even close to catching up, let alone getting ahead of it</p>
+            <p class="quote-attribution">Jeremy B.</p>
+        </blockquote>
 
         <ul>
             <li>Do you know how your business will look in the future?</li>

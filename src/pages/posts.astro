@@ -4,17 +4,18 @@ import PostCard from '../components/PostCard.astro';
 import { sortPosts } from "@js/utils";
 const allPosts = await Astro.glob('./posts/*.md');
 const sortedPosts = sortPosts(allPosts);
-const pageTitle = "Things I've written."
+const pageTitle = "Posts"
+const pageHeading = "Maybe you want to know what I think."
 ---
 
-<IndexLayout title={pageTitle}>
+<IndexLayout pageTitle={pageTitle} pageHeading={pageHeading}>
 
     <section>
       <ul class="posts-list">
         {
           sortedPosts.length !== 0 &&
           sortedPosts
-            .map((post) => (
+            .map((post: any) => (
               <PostCard
                 date={post.frontmatter.pubDate}
                 title={post.frontmatter.title}

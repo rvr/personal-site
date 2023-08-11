@@ -18,7 +18,12 @@
 //// Base styles ////
 */
 
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     background-color: var(--base-light);
     color: var(--base-dark);
     font-family: 'Work Sans', sans-serif;
@@ -26,6 +31,7 @@ body {
     line-height: var(--text-2);
 }
 
+/** Links **/
 a {
     color: var(--accent-dark);
 }
@@ -34,6 +40,7 @@ a:hover {
     text-decoration: underline solid;
 }
 
+/** Headings **/
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin-bottom: var(--space-1);
@@ -69,10 +76,208 @@ p {
     margin-bottom: var(--space-2);
 }
 
+/** Lists **/
+.body-content ul {
+    list-style-type: disc;
+}
+
+.body-content ol {
+    list-style-type: decimal;
+}
+
+.body-content ul,
+.body-content ol {
+    padding-left: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.body-content li {
+    margin-bottom: var(--space--3);
+}
+
+/** Code blocks **/
+code {
+    font-family: monospace;
+}
+
+p > code,
+li > code {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border-radius: var(--space--6);
+    padding: .1rem var(--space--5);
+    background-color: var(--base-light-2);
+}
+
+article pre,
+section pre {
+    margin-bottom: var(--space-3);
+    padding: var(--space-1);
+    border-radius: var(--space--6);
+}
+
+
+/*
+//// Utilities ////
+*/
+
 .visually-hidden {
     display: none;
 }
 
+
+/*
+//// Site layout ////
+*/
+
+/* Everything between site header and site footer */
+site-container {
+    display: block;
+    max-width: 90vw;
+    margin-inline: auto;
+}
+
+@media screen and (min-width: 48em) {
+    site-container {
+      max-width: 70ch;
+    }
+}
+
+/** --- Site header and nav --- **/
+.site-header {
+    display: flex;
+    position: sticky;
+    /*height: calc(var(--space-6) * 1.5);*/
+    top: clamp(-3.5rem, -4vw, -2rem);
+    background-color: hsla(var(--base-light-2-hsl) / 0.9);
+}
+
+/* Default grid settings for small viewport */
+.site-header_inner {
+    display: flex;
+    flex-flow: column wrap;
+    position: sticky;
+    width: 100vw;
+    padding: clamp(1.5rem, 4vw, 8rem) 0 0;
+    top: 0;
+}
+
+/* Go to columns for larger viewport */
+@media screen and (min-width: 30em) {
+    .site-header_inner {
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+.site-title {
+    padding: var(--space-1) 0 var(--space--1);
+    text-align: center;
+    font-size: var(--text-2);
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Larger viewport put title on left */
+@media screen and (min-width: 30em) {
+    .site-title {
+        width: auto;
+    }
+}
+
+.home-link {
+    color: var(--accent-bright-1);
+}
+
+/*** Nav styles ***/
+
+.site-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--space--6) 0 var(--space--1);
+}
+
+.site-nav ul {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/* Larger viewport put nav on the right */
+@media screen and (min-width: 30em) {
+    .site-nav {
+        margin: 0;
+        padding-top: var(--space-1);
+    }
+}
+
+.site-nav_tab {
+    padding-right: var(--space--4);
+}
+
+.site-nav_tab:last-child {
+    padding-right: 0;
+}
+
+.site-nav_tab a {
+    display: block;
+    padding: var(--space--5) var(--space-1);
+    border-radius: calc(var(--text-4) / 2);
+    line-height: var(--text-0);
+    font-size: var(--text--2);
+    font-weight: 500;
+    background-color: hsla(var(--base-light-hsl) / 0.8);
+}
+
+/* Larger viewport adjust tab size and spacing */
+@media screen and (min-width: 30em) {
+    .site-nav_tab a {
+        margin-left: var(--space--4);
+    }
+}
+
+.site-nav_tab a:hover {
+    background-color: var(--base-light);
+}
+
+.site-nav_tab.-selected a {
+    background-color: var(--base-light--2);
+}
+
+/** --- Site body section --- **/
+.site-body {
+}
+
+/* Main content area insite the site body */
+
+#main-content {
+    padding: var(--space-4) 0 var(--space-6);
+}
+
+/** --- Site footer styles --- **/
+.site-footer {
+    position: sticky;
+    top: 100vh;
+    background-color: var(--base-light--1);
+    padding: var(--space-2) 0 var(--space-3) 0;
+}
+
+.site-footer_grid {
+}
+
+.site-footer_items {
+    display: grid;
+    grid-template: 1fr / min-content min-content 1fr;
+}
+
+.site-footer_item {
+    grid-row: 1 / 1;
+    font-size: var(--text--2);
+    padding-right: var(--space-2);
+}
+
+.site-footer_item.-copyright {
+    justify-self: end;
+}
 
 /*
 //// Components ////
@@ -132,115 +337,41 @@ p {
     margin-bottom: var(--space-4);
 }
 
-/*
-//// Site layout ////
-*/
+/** Quotes **/
+.quote {
+    position: relative;
+    padding: var(--space-1) var(--space-6) 0 0;
+}
 
-site-container {
+.quote::before {
+    content: '\00201c';
     display: block;
-    max-width: 90vw;
-    margin-inline: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    font-size: 1500%;
+    line-height: 0.8em;
+    color: hsl(var(--accent-bright-hsl) / 0.20);
 }
 
-@media screen and (min-width: 48em) {
-    site-container {
-      max-width: 70ch;
-    }
+.quote-content {
+    font-weight: 700;
+    margin: 0 0 0 var(--space-6);
 }
 
-.site-header {
-    background-color: var(--base-light-2);
-    padding: var(--space-4) 0 var(--space-1) 0;
+.quote-attribution {
+    text-align: right;
+    font-style: italic;
+    font-size: var(--text--1);
 }
 
-/** Default grid settings for small viewport **/
-.site-header_grid {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
+.quote-attribution::before {
+    content: '\00007e';
+    margin-right: var(--space--3);
 }
 
-/** Go to columns for larger viewport **/
-@media screen and (min-width: 30em) {
-    .site-header_grid {
-        grid-template-columns: auto auto;
-        grid-template-rows: auto;
-    }
-}
 
-.site-title {
-    font-size: var(--text-2);
-    font-weight: 800;
-    margin: 0;
-    align-self: center;
-    justify-self: center;
-}
-
-/** Larger viewport put title on left **/
-@media screen and (min-width: 30em) {
-    .site-title {
-        justify-self: left;
-    }
-}
-
-.home-link {
-    color: var(--base-dark);
-}
-
-/*
-//// Nav styles ////
-*/
-
-.site-nav {
-    align-self: center;
-    justify-self: center;
-    margin-top: var(--space-1);
-}
-
-/** Larger viewport put nav on the right **/
-@media screen and (min-width: 30em) {
-    .site-nav {
-        justify-self: right;
-        margin: 0;
-    }
-}
-
-.site-nav_tab {
-    display: inline-block;
-}
-
-.site-nav_tab a {
-    display: block;
-    padding: var(--space--5) var(--space-1);
-    border-radius: calc(var(--text-4) / 2);
-    line-height: var(--text-0);
-    font-size: var(--text--2);
-    font-weight: 500;
-    background-color: var(--base-light-3);
-}
-
-/** Larger viewport adjust tab size and spacing **/
-@media screen and (min-width: 30em) {
-    .site-nav_tab a {
-        margin-left: var(--space--4);
-    }
-}
-
-.site-nav_tab a:hover {
-    background-color: var(--base-light);
-}
-
-/** This would be better as a dynamic class on the active tab **/
-.posts .site-nav_tab.posts,
-.services .site-nav_tab.services,
-.work .site-nav_tab.work,
-.connect .site-nav_tab.connect {
-    background-color: var(--base-light--1);
-}
-
-#main-content {
-    padding: var(--space-4) 0 var(--space-6);
-}
 
 /*
 //// Site section styles ////
@@ -321,28 +452,3 @@ site-container {
 .post-body {
     padding-top: var(--space-1);
 }
-
-.post-body ul {
-    list-style-type: disc;
-    padding-left: var(--space-2);
-    margin-bottom: var(--space-2);
-}
-
-.post-body li {
-    margin-bottom: var(--space--3);
-}
-
-p code,
-li code {
-    display: inline-block;
-    padding: 0 var(--space--3);
-    border-radius: var(--space--6);
-    font-family: monospace;
-    background-color: var(--base-light-2);
-}
-
-pre {
-    margin-bottom: var(--space-3);
-    border-radius: var(--space--6);
-}
-
