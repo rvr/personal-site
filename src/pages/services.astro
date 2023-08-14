@@ -1,11 +1,12 @@
 ---
 import PageHeader from '@components/PageHeader.astro';
 import IndexLayout from '../layouts/IndexLayout.astro';
+const siteSection = 'services';
 const pageTitle = "Services";
 const pageHeading = "Maybe you could use some help.";
 ---
 
-<IndexLayout pageTitle={pageTitle} pageHeading={pageHeading}>
+<IndexLayout siteSection={siteSection} pageTitle={pageTitle} pageHeading={pageHeading}>
 
     <section class="body-content">
 

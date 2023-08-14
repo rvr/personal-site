@@ -4,11 +4,12 @@ import PostCard from '../components/PostCard.astro';
 import { sortPosts } from "@js/utils";
 const allPosts = await Astro.glob('./posts/*.md');
 const sortedPosts = sortPosts(allPosts);
-const pageTitle = "Posts"
-const pageHeading = "Maybe you want to know what I think."
+const siteSection = 'posts';
+const pageTitle = "Posts";
+const pageHeading = "Maybe you want to know what I think.";
 ---
 
-<IndexLayout pageTitle={pageTitle} pageHeading={pageHeading}>
+<IndexLayout siteSection={siteSection} pageTitle={pageTitle} pageHeading={pageHeading}>
 
     <section>
       <ul class="posts-list">

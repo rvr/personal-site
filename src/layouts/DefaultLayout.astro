@@ -2,7 +2,7 @@
 import SiteHeader from "@components/SiteHeader.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 
-const { pageTitle } = Astro.props;
+const { siteSection, pageTitle } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ const { pageTitle } = Astro.props;
 
 	<body>
 
-		<SiteHeader />
+		<SiteHeader siteSection={siteSection} />
 
 		<site-container class="site-body">
 			<main id="main-content">
