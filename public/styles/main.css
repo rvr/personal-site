@@ -150,6 +150,7 @@ site-container {
     /*height: calc(var(--space-6) * 1.5);*/
     top: clamp(-3.5rem, -4vw, -2rem);
     background-color: hsla(var(--base-light-2-hsl) / 0.9);
+    z-index: 1000;
 }
 
 /* Default grid settings for small viewport */
@@ -236,11 +237,16 @@ site-container {
 }
 
 .site-nav_tab a:hover {
-    background-color: var(--base-light);
+    text-decoration: none;
+    background-color: var(--base-light--1);
 }
 
 .site-nav_tab.-selected a {
     background-color: var(--base-light--2);
+    color: var(--accent-bright-1);
+}
+
+.site-nav_tab.-selected a:hover {
 }
 
 /** --- Site body section --- **/
@@ -277,6 +283,7 @@ site-container {
 
 .site-footer_item.-copyright {
     justify-self: end;
+    color: var(--accent-bright-1);
 }
 
 /*
@@ -337,13 +344,15 @@ site-container {
     margin-bottom: var(--space-4);
 }
 
-/** Quotes **/
-.quote {
+/** Quotes and endorsements **/
+.quote,
+.endorsement {
     position: relative;
-    padding: var(--space-1) var(--space-6) 0 0;
+    padding-top: var(--space-1);
 }
 
-.quote::before {
+.quote::before,
+.endorsement::before {
     content: '\00201c';
     display: block;
     position: absolute;
@@ -355,15 +364,30 @@ site-container {
     color: hsl(var(--accent-bright-hsl) / 0.20);
 }
 
+.quote-content,
+.endorsement-content {
+    margin: 0 var(--space-6);
+    text-wrap: pretty;
+}
+
+.quote-attribution,
+.endorsement-attribution {
+    font-style: italic;
+    font-size: var(--text--1);
+}
+
+/* Quote styles */
+.quote {
+    margin-bottom: var(--space-3);
+}
+
 .quote-content {
     font-weight: 700;
-    margin: 0 0 0 var(--space-6);
 }
 
 .quote-attribution {
+    margin: var(--space--1) var(--space-6) var(--space--2);
     text-align: right;
-    font-style: italic;
-    font-size: var(--text--1);
 }
 
 .quote-attribution::before {
@@ -371,7 +395,34 @@ site-container {
     margin-right: var(--space--3);
 }
 
+/* Endorsements styles */
+.endorsement-card {
+    content: "";
+    display: block;
+    margin-bottom: var(--space-2);
+}
 
+.endorsement-card::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 3px;
+    border-radius: 1.5px;
+    background: var(--base-light-3);
+}
+
+.endorsement-card:last-child::after {
+}
+
+.endorsement-content {
+    font-weight: 600;
+}
+
+.endorsement-attribution {
+    margin-top: var(--space-1);
+    text-align: center;
+}
 
 /*
 //// Site section styles ////
@@ -413,8 +464,9 @@ site-container {
     display: block;
     position: absolute;
     width: 42%;
-    height: 1px;
+    height: 3px;
     top: 50%;
+    border-radius: 1.5px;
     background-color: var(--base-light-3);
 }
 
@@ -436,6 +488,10 @@ site-container {
 .post-card_title {
     font-size: var(--text-1);
     font-weight: 500;
+}
+
+.post-blurb {
+    text-wrap: pretty;
 }
 
 /** Post page **/

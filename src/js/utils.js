@@ -47,3 +47,16 @@ export function sortPosts(posts, {
     }
     return filteredPosts;
 }
+
+export function getEndorsements(endorsements, {} = {}) {
+    const filteredEndorsements = endorsements.reduce((acc, endorsement) => {
+        // add endorsement to acc
+        acc.push(endorsement)
+        return acc;
+}, [])
+
+// Get random order
+filteredEndorsements.sort(() => Math.random() - 0.5)
+
+return filteredEndorsements;
+}

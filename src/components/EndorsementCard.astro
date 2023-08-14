@@ -1,0 +1,16 @@
+---
+interface Props {
+	content: string;
+	attribution: string;
+	date: Date;
+}
+
+const { content, attribution } = Astro.props;
+---
+
+<li class="endorsement-card">
+    <blockquote class="endorsement">
+        <p class="endorsement-content">{ content }</p>
+        <p class="endorsement-attribution">{ attribution }</p>
+    </blockquote>
+</li>

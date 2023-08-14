@@ -1,9 +1,16 @@
 ---
 import IndexLayout from '../layouts/IndexLayout.astro';
 import { sortPosts } from "@js/utils";
+import { getEndorsements } from "@js/utils";
 import PostCard from '@components/PostCard.astro';
+import EndorsementCard from '@components/EndorsementCard.astro';
+
 const allPosts = await Astro.glob('./posts/*.md');
 const sortedPosts = sortPosts(allPosts);
+
+const allEndorsements = await Astro.glob('./endorsements/*.md');
+const endorsements = getEndorsements(allEndorsements);
+
 const pageTitle = "Here to Help.";
 const pageHeading = "Hi there.";
 const intro = "I'm River Brandon. I'm a designer who loves working on complex systems, collaborating with other humans, and making things better in small and large ways. I've designed software, services, teams, systems, and approaches in a variety of environments. If you need help with design challenges, maybe we should talk."
@@ -13,6 +20,7 @@ const intro = "I'm River Brandon. I'm a designer who loves working on complex sy
 
 	<section class="recent-posts">
 		<h3>Recent posts.</h3>
+
 		<ul class="posts-list">
 			{
 				sortedPosts.length !== 0 &&
@@ -35,6 +43,22 @@ const intro = "I'm River Brandon. I'm a designer who loves working on complex sy
 
 	<section class="endorsements">
 		<h3>What people say about me.</h3>
+
+		<ul class="endorsements-list">
+			{
+				allEndorsements.length !== 0 &&
+				endorsements
+					.slice(0, 2)
+					.map((endorsement) => (
+						<EndorsementCard
+							content={endorsement.frontmatter.content}
+							attribution={endorsement.frontmatter.attribution}
+							date={endorsement.frontmatter.date}
+						/>
+					))
+			}
+
+		</ul>
 	</section>
 
 </IndexLayout>
