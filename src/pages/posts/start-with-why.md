@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: Start with why
 pubDate: 2023-07-09
 blurb: Why is context.

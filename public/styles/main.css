@@ -19,11 +19,9 @@
 */
 
 html {
-    height: 100%;
 }
 
 body {
-    height: 100%;
     background-color: var(--base-light);
     color: var(--base-dark);
     font-family: 'Work Sans', sans-serif;
@@ -49,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 30em) {
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
+      line-height: 1.2em;
     }
 }
 
@@ -131,6 +130,7 @@ section pre {
 */
 
 /* Everything between site header and site footer */
+
 site-container {
     display: block;
     max-width: 90vw;
@@ -139,84 +139,50 @@ site-container {
 
 @media screen and (min-width: 48em) {
     site-container {
-      max-width: 70ch;
+    max-width: 70ch;
     }
 }
 
-/** --- Site header and nav --- **/
+/* Site header and nav */
+
 .site-header {
-    display: flex;
     position: sticky;
-    /*height: calc(var(--space-6) * 1.5);*/
-    top: clamp(-3.5rem, -4vw, -2rem);
+    top: -2rem;
+    padding-top: 2rem;
     background-color: hsla(var(--base-light-2-hsl) / 0.9);
     z-index: 1000;
 }
 
-/* Default grid settings for small viewport */
 .site-header_inner {
+    position: sticky;
     display: flex;
     flex-flow: column wrap;
-    position: sticky;
-    width: 100vw;
-    padding: clamp(1.5rem, 4vw, 8rem) 0 0;
+    justify-content: space-between;
     top: 0;
-}
-
-/* Go to columns for larger viewport */
-@media screen and (min-width: 30em) {
-    .site-header_inner {
-        flex-flow: row wrap;
-        justify-content: space-between;
-    }
+    padding: var(--space--1) 0;
 }
 
 .site-title {
-    padding: var(--space-1) 0 var(--space--1);
+    align-self: center;
+    margin-bottom: var(--space--5);
     text-align: center;
     font-size: var(--text-2);
     font-weight: 800;
-    margin: 0;
 }
 
-/* Larger viewport put title on left */
-@media screen and (min-width: 30em) {
-    .site-title {
-        width: auto;
-    }
-}
-
-.home-link {
+.site-title_link {
     color: var(--accent-bright-1);
 }
 
-/*** Nav styles ***/
-
 .site-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: var(--space--6) 0 var(--space--1);
+    text-align: center;
 }
 
-.site-nav ul {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-/* Larger viewport put nav on the right */
-@media screen and (min-width: 30em) {
-    .site-nav {
-        margin: 0;
-        padding-top: var(--space-1);
-    }
-}
-
-.site-nav_tab {
-    padding-right: var(--space--4);
-}
-
-.site-nav_tab:last-child {
-    padding-right: 0;
+.site-nav_inner {
+    display: inline-grid;
+    grid-template: 1fr / 1fr auto 1fr;
+    column-gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .site-nav_tab a {
@@ -226,14 +192,8 @@ site-container {
     line-height: var(--text-0);
     font-size: var(--text--2);
     font-weight: 500;
+    text-align: center;
     background-color: hsla(var(--base-light-hsl) / 0.8);
-}
-
-/* Larger viewport adjust tab size and spacing */
-@media screen and (min-width: 30em) {
-    .site-nav_tab a {
-        margin-left: var(--space--4);
-    }
 }
 
 .site-nav_tab a:hover {
@@ -246,8 +206,25 @@ site-container {
     color: var(--accent-bright-1);
 }
 
-.site-nav_tab.-selected a:hover {
+/* Larger viewports */
+@media screen and (min-width: 70ch) {
+    .site-header {
+        top: -3.75rem;
+        padding-top: 3.75rem;
+    }
+    .site-header_inner {
+        flex-flow: row nowrap;
+    }
+
+    .site-title {
+        margin: 0;
+    }
+
+    .site-nav_inner {
+        margin-top: 0;
+    }
 }
+
 
 /** --- Site body section --- **/
 .site-body {
@@ -255,11 +232,11 @@ site-container {
 
 /* Main content area insite the site body */
 
-#main-content {
+.site-body_content {
     padding: var(--space-4) 0 var(--space-6);
 }
 
-/** --- Site footer styles --- **/
+/** --- Site footer --- **/
 .site-footer {
     position: sticky;
     top: 100vh;
@@ -285,6 +262,7 @@ site-container {
     justify-self: end;
     color: var(--accent-bright-1);
 }
+
 
 /*
 //// Components ////

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: In the hunt
 pubDate: 2023-07-12
 blurb: Job hunting is quite a thing these days.

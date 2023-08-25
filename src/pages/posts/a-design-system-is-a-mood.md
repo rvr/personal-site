@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: 'A design system is a mood'
 pubDate: 2023-07-21
 blurb: "Don't confuse your design system assets (color palettes, Figma components, CSS, etc.) for your actual design system."

@@ -9,9 +9,11 @@ const { siteSection, pageTitle } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta name="description" content="I'm a designer. Learn how I can help you with your design problems, or read what I think on a range of topics.">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="stylesheet" href="/styles/reset.css" />
+		<link rel="stylesheet" href="/styles/properties.css" /> -->
 		<link rel="stylesheet" href="/styles/main.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>River Brandon | {pageTitle}</title>
@@ -21,13 +23,13 @@ const { siteSection, pageTitle } = Astro.props;
 
 		<SiteHeader siteSection={siteSection} />
 
-		<site-container class="site-body">
-			<main id="main-content">
+		<main class="site-body">
+			<site-container class="site-body_content">
 
 				<slot />
 
-			</main>
-		</site-container>
+			</site-container>
+		</main>
 
 		<SiteFooter />
 	

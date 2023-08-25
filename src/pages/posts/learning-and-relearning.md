@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: Learning and relearning
 pubDate: 2023-07-10
 blurb: Creating this site means relearning some things, and learning a whole lot of new stuff.

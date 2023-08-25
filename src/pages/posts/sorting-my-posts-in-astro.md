@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: 'Sorting my posts in Astro'
 pubDate: 2023-08-01
 blurb: "I struggled for quite a while to get posts to sort on this site. Hopefully this can save you some time and frustration."
@@ -87,7 +87,7 @@ As you can see, I have a `PostCard.astro` component that handles the layout of e
 2. Importing the function in your page: `import { sortPosts } from "@js/utils";`. (Sidenote: my path for that is `@js/utils`, rather than `../js/utils.js`. This is handled by a path alias in `/tsconfig.json`. [Reference documentation here](https://docs.astro.build/en/guides/aliases/).)
 3. Defining your glob for the posts array: `const allPosts = await Astro.glob('./posts/*.md');`. This gets everything in the posts folder that is a Markdown file. 
 4. Your posts should each have a frontmatter value for the date you're using. Mine is called `pubDate`, and I have all my dates in `YYYY-MM-DD` format.
-5. Define the sorted posts array by calling the function and feeding it `allPosts`: `const sortedPosts = sortPosts(allPosts);`.
+5. Define the sorted posts array by calling the function and feeding it the 'allPosts' object: `const sortedPosts = sortPosts(allPosts);`.
 6. In your HTML for the page layout, don't call `allPosts.map`, but rather us `sortedPosts.map`.
 7. If you want a different sort, my function provides some options: `sortPosts(allPosts, { sortByDateForward: true });` for ascending (oldest first) order; or `sortPosts(allPosts, { sortByDateRandom:true });` to get a randomized list of posts (obvs).
 

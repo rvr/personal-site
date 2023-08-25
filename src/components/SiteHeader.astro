@@ -5,10 +5,10 @@ const { siteSection } = Astro.props;
 <header role="banner" class="site-header">
     <site-container class="site-header_inner">
         <h1 class="site-title">
-            <a href="/" class="home-link">Here to help.</a>
+            <a href="/" class="site-title_link">Here to help.</a>
         </h1>
         <nav role="navigation" class="site-nav">
-            <ul>
+            <ul class="site-nav_inner">
                 <li class:list={["site-nav_tab", siteSection === "posts" ? "-selected" : ""]}>
                     <a href="/posts">Posts</a>
                 </li>

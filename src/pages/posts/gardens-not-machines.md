@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: '@layouts/PostLayout.astro'
 title: 'Gardens, not machines'
 pubDate: 2023-07-16
 blurb: 'The little tomato plant that could'
