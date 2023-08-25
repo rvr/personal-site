@@ -6,7 +6,7 @@ const allPosts = await Astro.glob('./posts/*.md');
 const sortedPosts = sortPosts(allPosts);
 const siteSection = 'posts';
 const pageTitle = "Posts";
-const pageHeading = "Maybe you want to know what I think.";
+const pageHeading = "Things on my mind.";
 ---
 
 <IndexLayout siteSection={siteSection} pageTitle={pageTitle} pageHeading={pageHeading}>

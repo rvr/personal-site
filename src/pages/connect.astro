@@ -2,14 +2,25 @@
 import IndexLayout from '@layouts/IndexLayout.astro';
 const siteSection = 'connect';
 const pageTitle = "Connect";
-const pageHeading = "Maybe we should talk.";
+const pageHeading = "Let’s talk.";
 ---
 
 <IndexLayout siteSection={siteSection} pageTitle={pageTitle} pageHeading={pageHeading}>
 
     <section class="body-content">
         <ul>
-            <li>Email</li>
+            <li>
+                <a href="mailto:river@unit-e.com">Email me</a>
+            </li>
+            <li>
+                <a href="https://calendly.com/river-q3y" target="_blank">Schedule a chat</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/riverbrandon/" target="_blank">Connect on LinkedIn</a>
+            </li>
+            <li>
+                <a href="https://mstdn.plus/@rvr" target="_blank">Catch me on the socials (well, one social)</a>
+            </li>
         </ul>
     </section>
 
